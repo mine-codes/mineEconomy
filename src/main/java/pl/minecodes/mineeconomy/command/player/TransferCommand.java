@@ -12,11 +12,10 @@ import pl.minecodes.mineeconomy.data.configuration.Configuration;
 import pl.minecodes.mineeconomy.data.configuration.Messages;
 import pl.minecodes.mineeconomy.profile.Profile;
 import pl.minecodes.mineeconomy.profile.ProfileService;
-import pl.minecodes.mineeconomy.profile.helper.BalanceOperationCallback;
+import pl.minecodes.mineeconomy.profile.callback.BalanceOperationCallback;
 import pl.minecodes.mineeconomy.util.MessageUtil;
 import pl.minecodes.mineeconomy.util.Placeholders;
 
-import java.text.DecimalFormat;
 import java.util.Objects;
 
 @CommandAlias("transfer|pay")

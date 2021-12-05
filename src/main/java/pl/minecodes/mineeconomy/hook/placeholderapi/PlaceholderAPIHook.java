@@ -9,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import pl.minecodes.mineeconomy.data.configuration.Configuration;
 import pl.minecodes.mineeconomy.profile.Profile;
 import pl.minecodes.mineeconomy.profile.ProfileService;
+import pl.minecodes.mineeconomy.util.RoundUtil;
 
 import java.util.logging.Logger;
 
@@ -45,9 +46,9 @@ public class PlaceholderAPIHook extends PlaceholderExpansion {
         if (parameter.equals("balance")) {
             switch (this.configuration.getCurrencyPositionVault()) {
                 case AHEAD:
-                    return this.configuration.getCurrency(profile.getBalance()) + profile.getBalance();
+                    return this.configuration.getCurrency(profile.getBalance()) + RoundUtil.round(profile.getBalance(), this.configuration.getPlaces());
                 case BEHIND:
-                    return profile.getBalance() + this.configuration.getCurrency(profile.getBalance());
+                    return RoundUtil.round(profile.getBalance(), this.configuration.getPlaces()) + this.configuration.getCurrency(profile.getBalance());
             }
         }
         return "";

@@ -1,4 +1,4 @@
-package pl.minecodes.mineeconomy.profile.helper;
+package pl.minecodes.mineeconomy.profile.callback;
 
 public interface BalanceOperationCallback {
 

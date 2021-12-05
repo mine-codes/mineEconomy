@@ -16,6 +16,10 @@ public class Configuration extends OkaeriConfig {
     private double startBalance = 10;
     private DatabaseData databaseData = new DatabaseData();
 
+    //still under development
+    @Comment("Zaokrąglanie kwoty po dokonanej operacji (ilość miejsc po przecinku)")
+    private int places = 0;
+
 
     public String getCurrency(double value) {
         String[] currencySplitter = this.currency.split("\\|");
@@ -62,4 +66,12 @@ public class Configuration extends OkaeriConfig {
     }
 
     public enum CurrencyPositionVault {AHEAD, BEHIND}
+
+    public int getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(int places) {
+        this.places = places;
+    }
 }

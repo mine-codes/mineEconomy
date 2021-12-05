@@ -3,7 +3,8 @@ package pl.minecodes.mineeconomy.profile;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import pl.minecodes.mineeconomy.data.configuration.Configuration;
-import pl.minecodes.mineeconomy.profile.helper.BalanceOperationCallback;
+import pl.minecodes.mineeconomy.profile.callback.BalanceOperationCallback;
+import pl.minecodes.mineeconomy.util.RoundUtil;
 
 import java.util.UUID;
 
@@ -11,12 +12,15 @@ public class Profile {
 
     private final UUID uniqueId;
     private double balance;
+    private Configuration configuration;
 
     private boolean needUpdate;
 
     public Profile(UUID uniqueId, Configuration configuration) {
         this.uniqueId = uniqueId;
         this.balance = configuration.getStartBalance();
+        this.configuration = configuration;
+
         this.needUpdate = true;
     }
 
@@ -44,7 +48,7 @@ public class Profile {
         }
 
         callback.done();
-        this.balance += money;
+        this.balance = RoundUtil.round(money, configuration.getPlaces());
         this.needUpdate = true;
     }
 
@@ -63,7 +67,7 @@ public class Profile {
         }
 
         callback.done();
-        this.balance -= money;
+        this.balance = RoundUtil.round(money, configuration.getPlaces());
         this.needUpdate = true;
     }
 
@@ -74,7 +78,7 @@ public class Profile {
         }
 
         callback.done();
-        this.balance = balance;
+        this.balance = RoundUtil.round(balance, configuration.getPlaces());
         this.needUpdate = true;
     }
 

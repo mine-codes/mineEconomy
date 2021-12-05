@@ -9,9 +9,8 @@ import pl.minecodes.mineeconomy.EconomyPlugin;
 import pl.minecodes.mineeconomy.data.configuration.Configuration;
 import pl.minecodes.mineeconomy.profile.Profile;
 import pl.minecodes.mineeconomy.profile.ProfileService;
-import pl.minecodes.mineeconomy.profile.helper.BalanceOperationCallback;
+import pl.minecodes.mineeconomy.profile.callback.BalanceOperationCallback;
 
-import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
